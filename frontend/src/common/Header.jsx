@@ -24,7 +24,6 @@ const Header = () => {
   // Get cart items from Redux
   const cartItems = useSelector((state) => state.cart?.items || state.cartStore?.cart || []);
 
-
   // Memoized values for performance
   const totalItems = useMemo(() => 
     cartItems.reduce((total, item) => total + (item.quantity || 1), 0),
@@ -36,12 +35,11 @@ const Header = () => {
     [totalItems]
   );
 
-  // Navigation links configuration
+  // Navigation links configuration (Categories removed)
   const navLinks = useMemo(() => {
     const links = [
       { name: "Home", path: "/" },
       { name: "Products", path: "/products" },
-    
       { name: "About", path: "/about" },
       { name: "Contact", path: "/contact" }
     ];
@@ -156,7 +154,6 @@ const Header = () => {
                 aria-label="ShopEasy Home"
               >
                 ShopEasy
-               
               </Link>
             </div>
 
@@ -182,8 +179,6 @@ const Header = () => {
 
             {/* Right Side Actions */}
             <div className="flex items-center gap-2 sm:gap-4">
-              
-
               {/* Cart */}
               <Link 
                 to="/cart" 
