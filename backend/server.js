@@ -13,20 +13,33 @@ const app = express();
 
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
-// ✅ FIXED CORS (important)
+// ✅ Allowed origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://reduxtoolkit-ecommerce1.netlify.app"
+];
+
+// ✅ CORS FIX (Production + Local)
 app.use(
   cors({
-    origin: [
-      "https://reduxtoolkit-ecommerce1.netlify.app",
-      "http://localhost:3000"
-    ],
+    origin: function (origin, callback) {
+      // allow requests with no origin (like Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true
   })
 );
 
+// ✅ Preflight support
+app.options("*", cors());
+
 app.use(express.json());
 
-// Log all requests
+// Log requests
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
