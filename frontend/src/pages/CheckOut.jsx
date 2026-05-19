@@ -73,7 +73,7 @@ const CheckOut = () => {
       console.log("Sending order data:", orderData);
 
       const response = await axios.post(
-        "http://localhost:5000/api/orders/create",
+        "https://reduxtoolkit-ecommerce.onrender.com/api/orders/create",
         orderData,
         {
           headers: {

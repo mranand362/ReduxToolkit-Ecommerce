@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../api/api";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Mail, Lock, ArrowRight } from "lucide-react";
@@ -33,11 +33,7 @@ const Login = () => {
   try {
     setIsLoading(true);
 
-    const response = await axios.post(
-      "http://localhost:5000/api/auth/login",
-      formData
-    );
-
+    const response = await API.post("/api/auth/login", formData);
     // token save
     localStorage.setItem("token", response.data.token);
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../api/api";
 import { Package, Truck, CheckCircle, Clock, XCircle,  ChevronRight } from "lucide-react";
 
 const MyOrder = () => {
@@ -20,16 +20,11 @@ const MyOrder = () => {
         console.log("User:", user);
         console.log("Token:", token);
 
-        const response = await axios.get(
-          "http://localhost:5000/api/orders/myorders",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
+        const response = await API.get("/api/orders/myorders", {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
         console.log("API Response:", response.data);
 
         let ordersData = [];

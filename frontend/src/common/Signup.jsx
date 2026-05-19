@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../api/api";
 import { Link } from "react-router-dom";
 import { Mail, Lock, User, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -53,15 +53,11 @@ const Signup = () => {
   try {
     setIsLoading(true);
 
-    const response = await axios.post(
-      "http://localhost:5000/api/auth/register",
-      {
-        fullName: formData.fullName,
-        email: formData.email,
-        password: formData.password,
-      }
-    );
-
+    const response = await API.post("/api/auth/register", {
+  fullName: formData.fullName,
+  email: formData.email,
+  password: formData.password,
+});
     console.log(response.data);
 
     navigate("/login");
