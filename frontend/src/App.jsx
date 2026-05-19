@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import Mainlayout from "./common/MainLayout";
+import MainLayout from "./common/MainLyout";
 import About from "./common/About";
 import Contact from "./common/Contact";
 import Product from "./common/Product";
@@ -22,7 +22,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Mainlayout />}>
+       <Route path="/" element={<MainLayout />} >
 
           <Route index element={<Home />} />
 
@@ -35,6 +35,7 @@ function App() {
           <Route path="about" element={<About />} />
 
           <Route path="contact" element={<Contact />} />
+
 
           
 
