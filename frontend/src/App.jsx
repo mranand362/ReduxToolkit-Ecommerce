@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import MainLayout from "./common/MainLyout";
+import MainLayout from "./common/MainLayout";
 import About from "./common/About";
 import Contact from "./common/Contact";
 import Product from "./common/Product";
