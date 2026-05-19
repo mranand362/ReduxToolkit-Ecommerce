@@ -5,7 +5,7 @@ import { Provider } from "react-redux"
 import { store } from '../redux/store';
 
 
-const MainLaYOUT = () => {
+const MainLayout = () => {
     return (
         <div>
             <Provider store={store}>
@@ -19,4 +19,4 @@ const MainLaYOUT = () => {
     )
 }
 
-export default MainLaYOUT
+export default MainLayout
