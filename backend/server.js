@@ -17,7 +17,8 @@ dns.setServers(["8.8.8.8", "1.1.1.1"]);
 // Allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://reduxtoolkit-ecommerce1.netlify.app"
+  "https://reduxtoolkit-ecommerce1.netlify.app",
+  "https://redux-toolkit-ecommerce-gray.vercel.app"
 ];
 
 // CORS
